@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Link de todos los eventos: https://www.w3schools.com/jsref/dom_obj_event.asp -->
+      <!--- ambos clicks hacen exactamente lo mismo. Con los parametros es en caso de que eventClick function(value, event) -->
+
+      <!-- <button v-on:click= "eventClick('hola', $event)">Click1</button> -->
+      <!-- <button @click= "eventClick('hola', $event)">Click2</button> -->
+
+      <button @click.prevent.once.self='eventClick'>Enviar</button>
+      <input type="text" @keyup.enter.once='eventClick'>
+      <div @copy='eventClick'>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </div>
+    </div>
+  </body>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+      },
+
+      methods: {
+        eventClick: function(){
+          alert('enviado')
+        }
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Directivas: segundo h1. Los h1 hacen lo mismo -->
+      <h1>{{message}}</h1>
+      <h1 v-text="message"></h1>
+      <input type="text" v-model= "message">
+      <span v-bind:title="message">Hola</span>
+    </div>
+  </body>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        message: "Hola Mundo"
+      },
+
+      //Ciclo de vida de un componente
+      beforeCreate: function() {
+        console.log("before Create")
+      },
+
+      created: function() {
+        console.log("created")
+      },
+
+      mounted: function() {
+        console.log("mounted")
+      },
+
+      updated: function() {
+        console.log("updated")
+      },
+
+      destroyed: function() {
+        console.log("destroyed")
+      },
+    });
+  </script>
+</html>

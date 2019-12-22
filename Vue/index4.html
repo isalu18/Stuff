@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- falta important el archivo de bootstrap -->
+      <!-- <div class="alert" v-bind:class="{'alert-danger': flag}"></div> -->
+      <div class="alert" v-bind:class="classObject">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </div>
+    </div>
+  </body>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        flag: true,
+      },
+
+      computed: {
+        classObject: function(){
+          return {
+            'alert-danger' : this.flag
+          }
+        }
+      }
+    });
+  </script>
+</html>

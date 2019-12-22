@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <!-- recorriendo listas o diccionarios -->
+        <li v-for='i in items'>{{ i }}</li>
+        <p></p>
+        <li v-for='(value, key, i) in dic'> {{value}} {{key}} {{i}}</li>
+        <p></p>
+        <li v-for='item in lista'>{{item.name}}</li>
+        <p></p>
+        <!-- condicionales -->
+        <p v-if='flag'>True</p>
+        <p v-else='flag'>False</p>
+        <p v-if='num>0'>Es mayor a 0</p>
+        <p v-else-if='num==0'>Es igual a 0</p>
+        <p v-else='num'>Es menor a 0</p>
+        <!-- v-if se destruyen o crean cosas. Con v-show se ocultan o aparecen cosas -->
+      </ul>
+    </div>
+  </body>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        flag: true, //vm.flag = false en consola...
+        items: [1, 2, 3, 4, 5],
+        num: -10,
+        dic: {
+          name: 'isaac',
+          age: '23'
+        },
+        lista: [
+          {name:'Isaac'},
+          {name:'Christian'},
+          {name:'Pancho'}
+        ]
+      },
+    });
+  </script>
+</html>

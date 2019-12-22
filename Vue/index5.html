@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- con m tira distintos randoms, con c tira el mismo random -->
+      <p> {{mGetRandom() }}</p>
+      <p> {{mGetRandom() }}</p>
+      <p> {{mGetRandom() }}</p>
+      <hr>
+      <p> {{cGetRandom}}</p>
+      <p> {{cGetRandom}}</p>
+      <p> {{cGetRandom}}</p>
+    </div>
+  </body>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        input: "Hola"
+      },
+
+      methods: {
+        mGetRandom: function() {
+          return Math.random()
+        }
+      },
+
+      computed: {
+        cGetRandom: function() {
+          return Math.random()
+        }
+      },
+
+      watch: {
+        input: function(new_value, old_value){
+          console.log("New " + new_value)
+          console.log("Old " + old_value)
+        }
+      }
+    });
+  </script>
+</html>

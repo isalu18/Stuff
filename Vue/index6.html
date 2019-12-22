@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Este componente esta declarado de manera global, se puede declarar de manera local, video registro de componentes -->
+      <new-component></new-component>
+      <new-component></new-component>
+      <new-component></new-component>
+      <new-component></new-component>
+    </div>
+  </body>
+  <script src="vue.js"></script>
+  <script>
+    Vue.component("new-component", {
+      template: "<button @click='clickCounter'>Clicks {{ counter }}</button>",
+      data: function(){
+        return {
+          counter: 0
+        }
+      },
+
+      methods: {
+        clickCounter: function(){
+          this.counter++
+        }
+      }
+    })
+
+    var vm = new Vue({
+      el: "#app",
+      data: {
+      },
+
+    });
+  </script>
+</html>
