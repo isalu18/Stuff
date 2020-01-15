@@ -1,0 +1,3 @@
+>>> from testeo2 import fibonacci
+>>> fibonacci(12)
+144
