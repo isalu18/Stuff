@@ -4,14 +4,14 @@ from shopping_cart import Item, ShoppingCart, NotExistItemError
 class TestShoppingCart(unittest.TestCase):
 
     def setUp(self): #se va a ejecutar antes de las pruebas unitarias.
-        print("Metodo setUp, antes de la prueba")
+        #print("Metodo setUp, antes de la prueba")
         self.pan = Item("Pan", 3.0)
         self.jugo = Item("Jugo", 4.0)
         self.shopping_cart = ShoppingCart()
         self.shopping_cart.add_item(self.pan)
 
     def tearDown(self):
-        print("Metodo tearDown, despues de la prueba")
+        #print("Metodo tearDown, despues de la prueba")
         pass
 
 
@@ -43,8 +43,21 @@ class TestShoppingCart(unittest.TestCase):
     def test_total_unproducto(self):
         total = self.shopping_cart.total()
         self.assertGreater(total, 0)
-        self.assertLess(total, self.pan.price - 1.0)
+        self.assertLess(total, self.pan.price + 1.0)
+    
+    def test_codigo_pan(self):
+        self.assertRegex(self.pan.code(), self.pan.name)
 
+    def test_fail(self):
+        if 2 > 3:
+            self.fail("Dos no es mayor a tres")
+
+    #@unittest.skip("Aqui puedes dejar el motivo por el cual saltaste esta prueba")
+    #@unittest.skipIf(2 < 3,"Aqui puedes dejar el motivo por el cual saltaste esta prueba")
+    @unittest.skipUnless(3 > 5, "Aqui puedes dejar el motivo por el cual saltaste esta prueba")
+    def test_saltada(self):
+        pass
+    #si quieres ver mas detalles de las pruebas pon "python3 archivo.py -v"
 
 if __name__ == '__main__':  #saber si este archivo es el principal
     unittest.main()
