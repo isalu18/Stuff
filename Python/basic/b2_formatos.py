@@ -11,3 +11,9 @@ print(texto_reem)
 
 #strip elimina los espacios que puedan haber al principio o al final de un string
 #variable.strip()
+
+curso = "Python"
+version = "3"
+
+resultado = "Curso de {} {}".format(curso, version)
+print(resultado)
