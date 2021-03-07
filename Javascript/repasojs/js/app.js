@@ -12,7 +12,7 @@ console.log('Nombre: ' + nombre + ', Trabajo: ' + trabajo);
 //Forma bonita de escribir un console log
 console.log(`Nombre: ${nombre}, Trabajo: ${trabajo}`);
 
-const appContainer = document.querySelector('#app');
+const appContainer = document.querySelector('#app1');
 
 let html = `
             <ul>
